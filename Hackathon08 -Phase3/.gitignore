@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+dist/
+build/
+.next/
+coverage/
+.env*
+! .env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+# Local Netlify folder
+.netlify

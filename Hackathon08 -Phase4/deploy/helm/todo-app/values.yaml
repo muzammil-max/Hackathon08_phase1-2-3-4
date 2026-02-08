@@ -1,0 +1,54 @@
+# Global settings
+replicaCount: 1
+
+imagePullPolicy: IfNotPresent
+
+# Database settings
+database:
+  repository: postgres
+  tag: 15-alpine
+  user: todo_user
+  password: todo_password
+  db: todo_db
+  port: 5432
+  storage: 1Gi
+
+# Backend settings
+backend:
+  name: backend
+  repository: todo-backend
+  tag: v1
+  port: 8000
+  serviceType: ClusterIP
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+# Frontend settings
+frontend:
+  name: frontend
+  repository: todo-frontend
+  tag: v1
+  port: 3000
+  serviceType: NodePort
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+# Ingress settings
+ingress:
+  enabled: false
+  className: nginx
+  hosts:
+    - host: todo.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
